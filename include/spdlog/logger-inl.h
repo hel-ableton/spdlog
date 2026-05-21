@@ -13,7 +13,7 @@
 
 #include <cstdio>
 
-namespace spdlog {
+SPDLOG_NAMESPACE_BEGIN
 
 // public methods
 SPDLOG_INLINE logger::logger(const logger &other)
@@ -195,4 +195,4 @@ SPDLOG_INLINE void logger::err_handler_(const std::string &msg) const {
 #endif
     }
 }
-}  // namespace spdlog
+SPDLOG_NAMESPACE_END

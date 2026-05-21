@@ -20,7 +20,7 @@
 #include <memory>
 #include <string>
 
-namespace spdlog {
+SPDLOG_NAMESPACE_BEGIN
 
 using default_factory = synchronous_factory;
 
@@ -273,7 +273,7 @@ inline void critical(const T &msg) {
     default_logger_raw()->critical(msg);
 }
 
-}  // namespace spdlog
+SPDLOG_NAMESPACE_END
 
 //
 // enable/disable log calls at compile time according to global level.
