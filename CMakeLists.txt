@@ -30,7 +30,9 @@ endif()
 # Compiler config
 # ---------------------------------------------------------------------------------------
 if(SPDLOG_USE_STD_FORMAT)
+if(NOT DEFINED CMAKE_CXX_STANDARD)
     set(CMAKE_CXX_STANDARD 20)
+endif()
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
 elseif(NOT CMAKE_CXX_STANDARD)
     set(CMAKE_CXX_STANDARD 11)
@@ -199,7 +201,7 @@ spdlog_enable_warnings(spdlog)
 
 set_target_properties(spdlog PROPERTIES VERSION ${SPDLOG_VERSION} SOVERSION
                                                                   ${SPDLOG_VERSION_MAJOR}.${SPDLOG_VERSION_MINOR})
-set_target_properties(spdlog PROPERTIES DEBUG_POSTFIX ${SPDLOG_DEBUG_POSTFIX})
+set_target_properties(spdlog PROPERTIES DEBUG_POSTFIX "${SPDLOG_DEBUG_POSTFIX}")
 
 if(COMMAND target_precompile_headers AND SPDLOG_ENABLE_PCH)
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/pch.h.in ${PROJECT_BINARY_DIR}/spdlog_pch.h @ONLY)
